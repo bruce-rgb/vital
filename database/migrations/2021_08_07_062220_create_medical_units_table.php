@@ -14,7 +14,9 @@ class CreateMedicalUnitsTable extends Migration
     public function up()
     {
         Schema::create('medical_units', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_unit');
+            $table->string('nombre');
+            $table->string('adress');
             $table->timestamps();
         });
     }

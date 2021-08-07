@@ -14,8 +14,15 @@ class CreateDistancesTable extends Migration
     public function up()
     {
         Schema::create('distances', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_distance');
+            $table->unsignedBigInteger('id_patient');
+            $table->decimal('distance',8,2);
+            $table->datetime('time');
             $table->timestamps();
+
+            //foreign key
+            $table->foreign('id_patient')->references('id_patient')->on('patients');
+            // $table->foreignId('id_patient')->constrained('patients');
         });
     }
 

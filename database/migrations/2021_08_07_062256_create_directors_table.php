@@ -14,8 +14,18 @@ class CreateDirectorsTable extends Migration
     public function up()
     {
         Schema::create('directors', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_director');
+            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_unit')->nullable();
             $table->timestamps();
+
+            //foreign key
+            $table->foreign('id_user')->references('id_user')->on('users');
+            $table->foreign('id_unit')->references('id_unit')->on('medical_units');
+            // $table->foreignId('id_user')->constrained('users');
+            // $table->foreignId('id_unit')
+            //     ->nullable()
+            //     ->constrained('medical_units');
         });
     }
 

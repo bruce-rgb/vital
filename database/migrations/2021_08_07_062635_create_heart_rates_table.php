@@ -14,8 +14,15 @@ class CreateHeartRatesTable extends Migration
     public function up()
     {
         Schema::create('heart_rates', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_heart');
+            $table->unsignedBigInteger('id_patient');
+            $table->integer('heart_rate');
+            $table->datetime('time');
             $table->timestamps();
+
+            //foreign key
+            $table->foreign('id_patient')->references('id_patient')->on('patients');
+            // $table->foreignId('id_patient')->constrained('patients');
         });
     }
 

@@ -14,8 +14,15 @@ class CreateStepsTable extends Migration
     public function up()
     {
         Schema::create('steps', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_steps');
+            $table->unsignedBigInteger('id_patient');
+            $table->integer('steps');
+            $table->datetime('time');
             $table->timestamps();
+
+            //foreign key
+            $table->foreign('id_patient')->references('id_patient')->on('patients');
+            // $table->foreignId('id_patient')->constrained('patients');
         });
     }
 

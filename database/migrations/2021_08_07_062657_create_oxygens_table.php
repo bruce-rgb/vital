@@ -14,8 +14,15 @@ class CreateOxygensTable extends Migration
     public function up()
     {
         Schema::create('oxygens', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_oxygen');
+            $table->unsignedBigInteger('id_patient');
+            $table->decimal('oxygen',3,2);
+            $table->datetime('time');
             $table->timestamps();
+
+            //foreign key
+            $table->foreign('id_patient')->references('id_patient')->on('patients');
+            // $table->foreignId('id_patient')->constrained('patients');
         });
     }
 
