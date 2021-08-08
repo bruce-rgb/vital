@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Patient;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+use App\Models\Doctor;
 
 class PatientFactory extends Factory
 {
@@ -22,9 +24,9 @@ class PatientFactory extends Factory
     public function definition()
     {
         return [
-            'id_user' => '',
-            'id_doctor' => '',
-            'birthday' => '',
+            'id_user' => User::factory()->patient(),
+            'id_doctor' => Doctor::factory(),
+            'birthday' => $this->faker->date('Y_m_d','1999-06-09'), //Doctor::all()->random()->id_unit,
         ];
     }
 }

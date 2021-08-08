@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Doctor;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+use App\Models\MedicalUnit;
 
 class DoctorFactory extends Factory
 {
@@ -22,9 +24,9 @@ class DoctorFactory extends Factory
     public function definition()
     {
         return [
-            'id_user' => '',
-            'id_unit' => '',
-            'specialty' => '',
+            'id_user' => User::factory()->doctor(),
+            'id_unit' => MedicalUnit::inRandomOrder()->first()->id_unit, //MedicalUnit::all()->random()->id_unit,
+            'specialty' => $this->faker->randomElement(['General','Geriatrics','Internist','Gynecology']),
         ];
     }
 }

@@ -22,8 +22,8 @@ class MedicalUnitFactory extends Factory
     public function definition()
     {
         return [
-            'name' => '',
-            'address' => '',
+            'name' => $this->faker->company(),
+            'address' => $this->faker->address(),
         ];
     }
 }

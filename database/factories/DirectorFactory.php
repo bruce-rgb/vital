@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Director;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+use App\Models\MedicalUnit;
 
 class DirectorFactory extends Factory
 {
@@ -22,8 +24,8 @@ class DirectorFactory extends Factory
     public function definition()
     {
         return [
-            'id_user' => '',
-            'id_unit' => '',
+            'id_user' =>User::factory()->director(),
+            'id_unit' => MedicalUnit::factory(),
         ];
     }
 }

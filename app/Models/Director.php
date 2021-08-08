@@ -15,7 +15,7 @@ class Director extends Model
      * @var array
      */
     protected $fillable = [
-        'id_usuario',
+        'id_user',
         'id_unit',
     ];
 

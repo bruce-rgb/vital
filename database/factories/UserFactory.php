@@ -48,4 +48,47 @@ class UserFactory extends Factory
             ];
         });
     }
+
+    /**
+     * Indicate that the model's role is director.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function director()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'role' => 'director',
+            ];
+        });
+    }
+
+    /**
+     * Indicate that the model's role is doctor.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function doctor()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'role' => 'doctor',
+            ];
+        });
+    }
+
+    /**
+     * Indicate that the model's role is patient.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function patient()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'role' => 'patient',
+            ];
+        });
+    }
+
 }
