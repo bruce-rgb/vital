@@ -22,7 +22,9 @@ class DoctorFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_user' => '',
+            'id_unit' => '',
+            'specialty' => '',
         ];
     }
 }

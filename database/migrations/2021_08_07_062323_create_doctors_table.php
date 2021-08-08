@@ -17,6 +17,7 @@ class CreateDoctorsTable extends Migration
             $table->id('id_doctor');
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_unit')->nullable();
+            $table->enum('specialty', ['General','Geriatrics','Internist','Gynecology']);
             $table->timestamps();
 
             //foreign key

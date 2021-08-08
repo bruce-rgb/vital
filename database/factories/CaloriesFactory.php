@@ -22,7 +22,9 @@ class CaloriesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_patitient' => '',
+            'calories' => '',
+            'time' => '',
         ];
     }
 }

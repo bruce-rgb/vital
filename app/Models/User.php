@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'phone',
     ];
 
     /**
@@ -43,4 +44,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //EXPERIMENTAL Returns the director to whom the user belongs
+    public function director()
+    {
+        return $this->hasOne(Director::class,'id_user','id_user');
+    }
+
+    //EXPERIMENTAL Returns the doctor to whom the user belongs
+    public function doctor()
+    {
+        return $this->hasOne(Doctor::class,'id_user','id_user');
+    }
+
+    //EXPERIMENTAL Returns the patient to whom the user belongs
+    public function patient()
+    {
+        return $this->hasOne(Patient::class,'id_user','id_user');
+    }
 }

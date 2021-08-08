@@ -27,4 +27,10 @@ class HeartRate extends Model
     protected $casts = [
         'time' => 'datetime',
     ];
+
+    //Returns the patient to which the heart rate belongs
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class, 'id_patient','id_patient');
+    }
 }

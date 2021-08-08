@@ -15,7 +15,7 @@ class Calories extends Model
      * @var array
      */
     protected $fillable = [
-        'id_paciente',
+        'id_patient',
         'calories',
     ];
 
@@ -27,4 +27,10 @@ class Calories extends Model
     protected $casts = [
         'time' => 'datetime',
     ];
+
+    //Returns the patient to which the calories belongs
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class, 'id_patient','id_patient');
+    }
 }

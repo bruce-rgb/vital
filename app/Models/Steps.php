@@ -27,4 +27,10 @@ class Steps extends Model
     protected $casts = [
         'time' => 'datetime',
     ];
+
+    //Returns the patient to which the steps belongs
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class, 'id_patient','id_patient');
+    }
 }

@@ -22,7 +22,9 @@ class StepsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_patitient' => '',
+            'steps' => '',
+            'time' => '',
         ];
     }
 }

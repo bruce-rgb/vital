@@ -16,7 +16,19 @@ class Doctor extends Model
      */
     protected $fillable = [
         'id_usuario',
-        'id_unidad',
-        'especialidad',
+        'id_unit',
+        'specialty',
     ];
+
+    //Returns the medical unit to which the doctor belongs
+    public function medicalUnit()
+    {
+        return $this->belongsTo(MedicalUnit::class, 'id_unit','id_unit');
+    }
+
+    //Returns the user to which the doctor belongs
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user','id_user');
+    }
 }

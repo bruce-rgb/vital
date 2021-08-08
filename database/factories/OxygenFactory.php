@@ -22,7 +22,9 @@ class OxygenFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_patitient' => '',
+            'oxygen' => '',
+            'time' => '',
         ];
     }
 }

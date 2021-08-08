@@ -22,7 +22,9 @@ class HeartRateFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_patitient' => '',
+            'heart_rate' => '',
+            'time' => '',
         ];
     }
 }

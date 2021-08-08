@@ -22,7 +22,9 @@ class DistanceFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_patitient' => '',
+            'distance' => '',
+            'time' => '',
         ];
     }
 }
