@@ -16,7 +16,8 @@ class CreateOxygensTable extends Migration
         Schema::create('oxygens', function (Blueprint $table) {
             $table->id('id_oxygen');
             $table->unsignedBigInteger('id_patient');
-            $table->decimal('oxygen',3,2);
+            //$table->integer('oxygen');
+            $table->decimal('oxygen',5,2);
             $table->datetime('time');
             $table->timestamps();
 

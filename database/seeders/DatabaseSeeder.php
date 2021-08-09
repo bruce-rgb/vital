@@ -18,6 +18,12 @@ class DatabaseSeeder extends Seeder
         //$this->call(DoctorSeeder::class); created by patients down
         $this->call(PatientSeeder::class); // 30 patients with his respective 30 doctors
 
+        $this->call(CaloriesSeeder::class); //
+        $this->call(DistanceSeeder::class); //
+        $this->call(HeartRateSeeder::class); //
+        $this->call(OxygenSeeder::class); //
+        $this->call(StepsSeeder::class); //
+        $this->call(TemperatureSeeder::class); //
 
         $this->call(UserSeeder::class);
 

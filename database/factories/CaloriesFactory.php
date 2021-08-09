@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Calories;
+use App\Models\Patient;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CaloriesFactory extends Factory
@@ -21,10 +23,13 @@ class CaloriesFactory extends Factory
      */
     public function definition()
     {
+        static $id = 1;
+
         return [
-            'id_patitient' => '',
-            'calories' => '',
+            'id_patient' => $id++,
+            'calories' => $this->faker->numberBetween(0, 100),
             'time' => '',
         ];
+
     }
 }

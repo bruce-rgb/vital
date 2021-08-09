@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use Faker\Factory;
 
 class CaloriesSeeder extends Seeder
 {
@@ -13,6 +16,19 @@ class CaloriesSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $currentDateTime = Carbon::now();
+        $faker = Factory::create();
+        for ($i = 1; $i < 29; $i++) {
+            $newDateTime = $currentDateTime;
+
+            for ($j = 1; $j < 31; $j++) {
+                DB::table('calories')->insert([
+                    'id_patient' => $i,
+                    'calories' => $faker->numberBetween(0, 100),
+                    'time' => $newDateTime,
+                ]);
+                $newDateTime = $currentDateTime->addMinutes(30);
+            }
+        }
     }
 }

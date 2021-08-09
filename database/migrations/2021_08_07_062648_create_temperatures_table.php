@@ -16,7 +16,7 @@ class CreateTemperaturesTable extends Migration
         Schema::create('temperatures', function (Blueprint $table) {
             $table->id('id_temperature');
             $table->unsignedBigInteger('id_patient');
-            $table->decimal('temperature',8,2);
+            $table->decimal('temperature',4,2);
             $table->datetime('time');
             $table->timestamps();
 
