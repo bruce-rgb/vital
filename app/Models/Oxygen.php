@@ -10,6 +10,13 @@ class Oxygen extends Model
     use HasFactory;
 
     /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_oxygen';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
