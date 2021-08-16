@@ -14,7 +14,8 @@ class MedicalUnitController extends Controller
      */
     public function index()
     {
-        //
+        $units = MedicalUnit::all();
+        return view('unit.unit', compact('units'));
     }
 
     /**
@@ -24,7 +25,7 @@ class MedicalUnitController extends Controller
      */
     public function create()
     {
-        //
+        return view('unit.create');
     }
 
     /**
@@ -35,7 +36,14 @@ class MedicalUnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+        ]);
+
+        MedicalUnit::create($request->all());
+        session()->flash('success', 'Unit added succesfully');
+        return redirect(route('units'));
     }
 
     /**
@@ -55,9 +63,10 @@ class MedicalUnitController extends Controller
      * @param  \App\Models\MedicalUnit  $medicalUnit
      * @return \Illuminate\Http\Response
      */
-    public function edit(MedicalUnit $medicalUnit)
+    public function edit($id)
     {
-        //
+        $unit = MedicalUnit::find($id);
+        return view('unit.edit', compact('unit'));
     }
 
     /**
@@ -67,9 +76,17 @@ class MedicalUnitController extends Controller
      * @param  \App\Models\MedicalUnit  $medicalUnit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MedicalUnit $medicalUnit)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+        ]);
+
+        $unit=request()->except(['_token','_method']);
+
+        MedicalUnit::findOrFail($id)->update($unit);
+        return redirect(route('units'));
     }
 
     /**
@@ -78,8 +95,11 @@ class MedicalUnitController extends Controller
      * @param  \App\Models\MedicalUnit  $medicalUnit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MedicalUnit $medicalUnit)
+    public function delete($id)
     {
-        //
+        $unit = MedicalUnit::findOrFail($id);
+        $unit->delete();
+
+        return back()->with('deleted','Eliminación exitosa');
     }
 }
