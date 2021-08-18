@@ -14,7 +14,7 @@ class Director extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id_direstor';
+    protected $primaryKey = 'id_director';
 
     /**
      * The attributes that are mass assignable.

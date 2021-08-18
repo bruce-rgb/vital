@@ -16,7 +16,7 @@ class CreateDirectorsTable extends Migration
         Schema::create('directors', function (Blueprint $table) {
             $table->id('id_director');
             $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('id_unit')->nullable();
+            $table->unsignedBigInteger('id_unit')->nullable()->default(null);
             $table->timestamps();
 
             //foreign key
