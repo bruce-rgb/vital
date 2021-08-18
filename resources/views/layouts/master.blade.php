@@ -71,6 +71,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link @yield('user_active')" href="{{ route('users') }}">
+                                <span data-feather="users"></span>
+                                Usuarios
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link @yield('unit_active')" href="{{ route('units') }}">
                                 <span data-feather="folder"></span>
                                 Unidades Médicas
@@ -92,12 +98,6 @@
                             <a class="nav-link @yield('patient_active')" href="{{ route('patients') }}">
                                 <span data-feather="user"></span>{{-- bar-chart-2 --}}
                                 Pacientes
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @yield('user_active')" href="{{ route('users') }}">
-                                <span data-feather="users"></span>
-                                Usuarios
                             </a>
                         </li>
                     </ul>

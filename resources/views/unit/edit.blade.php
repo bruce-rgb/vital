@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title')Dashboard @endsection
+@section('title')Unidades Medicas @endsection
 @section('unit_active')active @endsection
 
 @section('content')
